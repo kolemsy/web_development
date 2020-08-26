@@ -1,0 +1,10 @@
+---> All elements on a webpage are interpreted by the browser as 
+ 'living' inside a box. components of box model include:
+	content, border, padding and margin.
+--->  border:width, style, color
+	width: thin, medium, thick.
+--->  style: 10 different styles including none, dotted and solid
+--->padding:
+	padding-top, ...
+box-sizing:
+ box sizing: border-box; #fixes the problem of overflow.

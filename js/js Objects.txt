@@ -1,0 +1,89 @@
+--->let spaceship = {}; // spaceship is an empty object
+
+--->// An object literal with two key-value pairs
+let spaceship = {
+  'Fuel Type': 'diesel',
+  color: 'silver'
+};
+--->Accessing Properties
+1 the dot notation:
+	spaceship.color
+2 bracket notation:
+	spaceship['Fuel type']
+---> Property Assignment
+	Objects are mutable, we can update them using = operator.
+---> Delete property:
+	delete spaceship.color
+---> When data stored on an object is a function, we call that a 
+ method.
+const alienShip = {
+  invade () { 
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+same as
+const alienShip = {
+  invade: function () { 
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+
+---> accessing methods
+alienShip.invade();
+
+---> nested objects:
+An object may have another object
+
+const spaceship = {
+     telescope: {
+        yearBuilt: 2018,
+        model: '91031-XLT',
+        focalLength: 2032 
+     },
+    crew: {
+        captain: { 
+            name: 'Sandra', 
+            degree: 'Computer Engineering', 
+            encourageTeam() { console.log('We got this!') } 
+         }
+    },
+    engine: {
+        model: 'Nimbus2000'
+     },
+     nanoelectronics: {
+         computer: {
+            terabytes: 100,
+            monitors: 'HD'
+         },
+        'back-up': {
+           battery: 'Lithium',
+           terabytes: 50
+         }
+    }
+}; 
+
+spaceship.nanoelectronics['back-up'].battery; // Returns 'Lithium'
+
+---> Pass by Reference
+Objects are passed by reference. This means when we pass a 
+variable assigned to an object into a function as an argument,
+ the computer interprets the parameter name as pointing to the 
+space in memory holding that object. As a result, functions which 
+change object properties actually mutate the object permanently
+ (even when the object is assigned to a const variable).
+
+const spaceship = {
+  homePlanet : 'Earth',
+  color : 'silver'
+};
+
+let paintIt = obj => {
+  obj.color = 'glorious gold'
+};
+
+paintIt(spaceship);
+
+spaceship.color // Returns 'glorious gold'
+
+
+--->Looping through objects

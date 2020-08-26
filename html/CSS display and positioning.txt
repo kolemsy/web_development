@@ -1,0 +1,16 @@
+position:
+	static, absolute, relative, fixed
+z-index property controls how far 'back' or 'foward' an element should
+appear on the web page when elements overlap.
+--->display
+ 	inline
+	block
+	inline-block
+---> float
+	left, right
+Responsive Designs
+Breakpoint:
+  Landscape:
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    /* CSS ruleset */
+}

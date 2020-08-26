@@ -1,0 +1,30 @@
+--->for loop:
+	for(initialization, stopping condition, iteration statement){
+     }
+--->looping in reverse:
+	same as up
+--->Looping through array
+const animals = ['Grizzly Bear', 'Sloth', 'Sea Lion'];
+for (let i = 0; i < animals.length; i++){
+  console.log(animals[i]);
+}
+--->The While loop:
+	// A for loop that prints 1, 2, and 3
+for (let counterOne = 1; counterOne < 4; counterOne++){
+  console.log(counterOne);
+}
+
+// A while loop that prints 1, 2, and 3
+let counterTwo = 1;
+while (counterTwo < 4) {
+  console.log(counterTwo);
+  counterTwo++;
+}
+--->Do..While:
+let cupsOfSugarNeeded = 5;
+let cupsAdded = 0; 
+do {
+  cupsAdded ++
+} while(cupsAdded < cupsOfSugarNeeded);
+
+--->break

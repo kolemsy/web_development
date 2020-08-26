@@ -1,0 +1,76 @@
+-->HTTP stands for Hypertext Transfer Protocol and is used to structure requests and
+responses over the internet.
+-->TCP manages the channels between your browser and the server
+--->HTTP & TCP: How it Works
+When you type an address such as www.codecademy.com into your 
+browser, you are commanding it to open a TCP channel to the server
+ that responds to that URL
+
+Once the TCP connection is established, the client sends a HTTP 
+GET request to the server to retrieve the webpage it should 
+display. 
+
+After the server has sent the response, it closes the TCP 
+connection.
+
+GET requests are one kind of HTTP method a client can call
+
+--->What is HTTPS?
+many servers support HTTPS, short for HTTP Secure, which allows 
+you to encrypt data that you send and receive.
+
+--->Introduction to Requests
+he four most commonly used types of HTTP requests are GET, POST,
+ PUT, and DELETE.
+With a GET request, we’re retrieving, or getting, information from
+ some source (usually a website). For a POST request, we’re 
+
+posting information to a source that will process the information
+ and send it back.
+HTTP Requests:
+We’ll be exploring one system of technologies called Asynchronous
+JavaScript and XML, or AJAX.
+JavaScript uses an event loop to handle asynchronous function calls.
+
+--->XHR GET Requsest
+Asynchronous JavaScript and XML (AJAX), enables requests to be 
+made after the initial page load. 
+ the XMLHttpRequest (XHR) API, named for XML, can be used to make 
+many kinds of requests and supports other forms of data.
+
+--->BoilerPlate code for AJAX GET request using an XMLHttpRequest
+object.
+
+const xhr = new XMLHttpRequest();
+const url = 'https://api-to-call.com/endpoint';
+xhr.responseType = 'json';
+xhr.onreadystatechange = () =>{
+  if(xhr.readyState === XMLHttpRequest.DONE){
+    return xhr.response;
+  }
+};
+xhr.open('GET', url);
+xhr.send();
+
+A query string contains additional information to be sent with a 
+request. The Datamuse API allows us to retrieve more specific 
+data with query strings attached to the request URL.
+
+A query string is separated from the URL using a ? character. 
+After ?, you can then create a parameter which is a key value pair
+ joined by a =. Examine the example below:
+'https://api.datamuse.com/words?key=value&anotherKey=anotherValue'
+
+-->XHR POST Requests 
+
+const xhr = new XMLHttpRequest();
+const url = 'https://api-to-call.com/endpoint';
+const data = JSON.stringify({id: '200'});
+xhr.responseType = 'json';
+xhr.onreadystatechange = () =>{
+  if(xhr.readyState === XMLHttpRequest.DONE){
+    return xhr.response.value;
+  }
+}
+xhr.open('POST', url);
+xhr.send(data);

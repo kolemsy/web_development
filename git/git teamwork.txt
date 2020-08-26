@@ -1,0 +1,54 @@
+Git offers a suite of collaboration tools to make working with 
+others on a project easier.
+--->Remote
+A remote is a shared Git repository that allows multiple 
+collaborators to work on the same Git project from different 
+locations.
+Collaborators work on the project independently, and merge changes
+together when they are ready to do so.
+
+--->git clone
+git clone remote_location clone_name
+
+--->git remote -v
+lists the name of the remote, origin, as well as its location.
+automatically names this remote origin, because it refers to the
+ remote repository of origin.
+
+--->git fetch
+An easy way to see if changes have been made to the remote and 
+bring the changes down to your local copy is with:
+
+git fetch
+This command will not merge changes from the remote into your 
+local repository. It brings those changes onto what’s called a 
+remote branch
+
+--->git merge
+use the git merge command to integrate origin/master into your 
+local master branch. The command:
+
+git merge origin/master
+
+--->Git workflow
+The workflow for Git collaborations typically follows this order:
+
+Fetch and merge changes from the remote
+Create a branch to work on a new project feature
+Develop the feature on your branch and commit your work
+Fetch and merge from the remote again (in case new commits were made while you were working)
+Push your branch up to the remote for review
+Steps 1 and 4 are a safeguard against merge conflicts, which occur
+ when two branches contain file changes that cannot be merged with
+ the git merge command. Step 5 involves git push
+
+--->git push
+The command: git push origin your_branch_name
+will push your branch up to the remote, origin
+
+Summary
+git clone: Creates a local copy of a remote.
+git remote -v: Lists a Git project’s remotes.
+git fetch: Fetches work from the remote into the local copy.
+git merge origin/master: Merges origin/master into your local branch.
+git push origin <branch_name>: Pushes a local branch to the origin remote.

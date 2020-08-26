@@ -1,0 +1,3 @@
+Global scope
+Block scope: visible within a block
+Scope solution: when many global variables exist in the global namespace

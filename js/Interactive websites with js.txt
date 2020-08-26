@@ -1,0 +1,20 @@
+---> the defer attribute
+The defer attribute specifies scripts should be executed after 
+the HTML file is completely parsed
+
+<script src="example.js" defer></script>
+When is defer useful?
+
+When a script contains functionality that requires interaction
+with the DOM, the defer attribute is the way to go.
+
+---> The Async Attribute
+This means that, similar to the defer attribute, the HTML parser 
+will continue parsing the rest of the HTML as the script is 
+downloaded in the background. However, with the async attribute,
+ the script will not wait until the entire page is parsed: it will
+ execute immediately after it has been downloaded. eg
+
+<script src="example.js" async></script>
+async is useful for scripts that are independent of other scripts
+ in order to function accordingly.

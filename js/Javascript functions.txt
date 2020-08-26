@@ -1,0 +1,30 @@
+use the function keyword:
+function func_name(parameters){
+	body
+}
+#call function
+ func_name(argument)
+--->Function Expressions
+	define a function inside an expression
+const calculateArea = function(width, height){
+	const area = width * height
+	return area
+};
+
+---> Arrow Functions
+const plantNeedsWater = (day) =>{
+  if (day === 'Wednesday'){
+    return true;
+  }else{
+    return false;
+  }
+}
+--->Concise Body Arrow Functions:
+1. function that takes a single parameter, do not need to enclose parameter
+2. funct. body composed of a single line block does not need curly braces.
+
+const plantNeedsWater = (day) => {
+  return day === 'Wednesday' ? true : false;
+}; can be refactored as 
+
+const plantNeedsWater = day => day === 'Wednesday' ? true : false;

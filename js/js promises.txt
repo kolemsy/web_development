@@ -1,0 +1,178 @@
+An asynchronous operation is one that allows the computer to 
+“move on” to other tasks while waiting for the asynchronous 
+operation to complete.
+web development makes use of asynchronous operations. Operations 
+like making a network request or querying a database can be 
+time-consuming, but JavaScript allows us to execute other tasks 
+while awaiting their completion.
+
+--->Promise
+Promises are objects that represent the eventual outcome of an 
+asynchronous operation.
+A promise object can be in one of three states:
+Pending
+Fulfilled
+Rejected
+
+--->Constructing a Promise Object
+To create a new Promise object, we use the new keyword and the
+ Promise constructor method:
+
+const executorFunction = (resolve, reject) => { };
+const myFirstPromise = new Promise(executorFunction);
+
+The Promise constructor method takes a function parameter called 
+the executor function which runs automatically when the 
+constructor is called. The executor function generally starts an 
+asynchronous operation and dictates how the promise should be 
+settled.
+When the Promise constructor runs, JavaScript will pass its own 
+resolve() and reject() functions into the executor function.
+
+const executorFunction = (resolve, reject) => {
+  if (someCondition) {
+      resolve('I resolved!');
+  } else {
+      reject('I rejected!'); 
+  }
+}
+const myFirstPromise = new Promise(executorFunction);
+--->Example
+const inventory = {
+  sunglasses: 1900,
+  pants: 1088,
+  bags: 1344
+};
+
+// Write your code below:
+const myExecutor = (resolve, reject) =>{
+  if(inventory.sunglasses > 0){
+    resolve('Sunglasses order processed.');
+  }else{
+    reject('That item is sold out.');
+  }
+};
+
+const orderSunglasses = () =>{
+  return new Promise(myExecutor);
+};
+
+let orderPromise = orderSunglasses();
+console.log(orderPromise);
+
+--->The Node setTimeout() Function
+setTimeout() is a Node API (a comparable API is provided by web 
+browsers) that uses callback functions to schedule tasks to be 
+performed after a delay.
+setTimeout() has two parameters: a callback function and a delay 
+in milliseconds.
+
+const delayedHello = () => {
+  console.log('Hi! This is an asynchronous greeting!');
+};
+
+setTimeout(delayedHello, 2000);
+
+how we’ll be using setTimeout() to construct asynchronous promises:
+const returnPromiseFunction = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(( ) => {resolve('I resolved!')}, 1000);
+  });
+};
+
+const prom = returnPromiseFunction();
+
+--->Consuming Promises
+.then() is a higher-order function—it takes two callback functions
+ as arguments. We refer to these callbacks as handlers. When the 
+promise settles, the appropriate handler will be invoked with that
+settled value.
+--->The onFulfilled and onRejected Functions
+To handle a “successful” promise, or a promise that resolved, we 
+invoke .then() on the promise, passing in a success handler 
+callback function
+const prom = new Promise((resolve, reject) => {
+  resolve('Yay!');
+});
+
+const handleSuccess = (resolvedValue) => {
+  console.log(resolvedValue);
+};
+
+prom.then(handleSuccess); // Prints: 'Yay!
+
+--->Using catch() with Promises
+One way to write cleaner code is to follow a principle called 
+separation of concerns.
+Instead of passing both handlers into one .then(), we can chain a 
+second .then() with a failure handler to a first .then() with a 
+success handler and both cases will be handled.
+
+prom
+  .then((resolvedValue) => {
+    console.log(resolvedValue);
+  })
+  .then(null, (rejectionReason) => {
+    console.log(rejectionReason);
+  });
+
+To create even more readable code, we can use a different promise
+ function: .catch().
+The .catch() function takes only one argument, onRejected. In the 
+case of a rejected promise, this failure handler will be invoked 
+with the reason for rejection.
+prom
+  .then((resolvedValue) => {
+    console.log(resolvedValue);
+  })
+  .catch((rejectionReason) => {
+    console.log(rejectionReason);
+  });
+
+--->Chaining Multiple Promises
+One common pattern we’ll see with asynchronous programming is 
+multiple operations which depend on each other to execute or that
+ must be executed in a certain order.
+This process of chaining promises together is called composition. 
+
+firstPromiseFunction()
+.then((firstResolveVal) => {
+  return secondPromiseFunction(firstResolveVal);
+})
+.then((secondResolveVal) => {
+  console.log(secondResolveVal);
+});
+
+--->Avoiding Common Mistakes
+Mistake 1: Nesting promises instead of chaining them.
+returnsFirstPromise()
+.then((firstResolveVal) => {
+  return returnsSecondValue(firstResolveVal)
+    .then((secondResolveVal) => {
+      console.log(secondResolveVal);
+    })
+})
+
+--->Forgetting to return a promise
+returnsFirstPromise()
+.then((firstResolveVal) => {
+  returnsSecondValue(firstResolveVal)
+})
+.then((someVal) => {
+  console.log(someVal);
+})
+
+--->Using Promise.all()
+Promise.all() accepts an array of promises as its argument and 
+returns a single promise
+That single promise will settle in one of two ways:
+
+let myPromises = Promise.all([returnsPromOne(), returnsPromTwo(), returnsPromThree()]);
+
+myPromises
+  .then((arrayOfValues) => {
+    console.log(arrayOfValues);
+  })
+  .catch((rejectionReason) => {
+    console.log(rejectionReason);
+  });

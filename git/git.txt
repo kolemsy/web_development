@@ -1,0 +1,42 @@
+BASIC GIT WORKFLOW
+--->git init The command sets up all the tools Git needs to begin
+tracking changes made to the project
+
+--->A Git project can be thought of as having three parts:
+
+A Working Directory: where you’ll be doing all the work: creating,
+ editing, deleting and organizing files
+
+A Staging Area: where you’ll list changes you make to the working
+ directory
+A Repository: where Git permanently stores those changes as 
+different versions of the project
+
+--->git add
+We can add a file to the staging area with:
+git add filename
+
+--->git diff
+Imagine that we type another line in scene-1.txt. Since the file 
+is tracked, we can check the differences between the working 
+directory and the staging area with:
+
+git diff filename
+
+--->git commit
+A commit is the last step in our Git workflow. A commit 
+permanently stores changes from the staging area inside the 
+repository.
+ one more bit of code is needed for a commit: the option -m 
+followed by a message.
+eg. git commit -m "Complete first line of dialogue"
+
+--->Standard Conventions for Commit Messages:
+Must be in quotation marks
+Written in the present tense
+Should be brief (50 characters or less) when using -m
+
+--->git log
+ Commits are stored chronologically in the repository and can be
+ viewed with:
+git log

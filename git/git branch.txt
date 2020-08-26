@@ -1,0 +1,43 @@
+git branch
+ Git allows us to create branches to experiment with versions of 
+a project.
+You can use the command below to answer the question: “which branch am I on?”
+
+--->git branch
+
+New Branch is a different version of the Git project. It contains
+ commits from Master but also has commits that Master does not 
+have.
+--->To create a new branch, use:
+git branch new_branch
+
+--->git checkout
+You can switch to the new branch with
+git checkout branch_name
+
+--->commit on a new branch
+ All the commands you do on master, you can also do on this branch
+git add filename
+git commit -m "Commit Message"
+
+--->git merge
+can easily accomplish merging the branch into master with:
+git merge branch_name
+
+--->merge conflict
+The merge was successful because master had not changed since we 
+made a commit on fencing. If it has, there will be a merge conflict
+
+--->delete branch
+The command
+git branch -d branch_name
+will delete the specified branch from your Git project.
+
+--->Summary
+The following commands are useful in the Git branch workflow.
+
+git branch: Lists all a Git project’s branches.
+git branch branch_name: Creates a new branch.
+git checkout branch_name: Used to switch from one branch to another.
+git merge branch_name: Used to join file changes from one branch to another.
+git branch -d branch_name: Deletes the branch specified.

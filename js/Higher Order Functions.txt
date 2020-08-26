@@ -1,0 +1,29 @@
+Functions that accepts other functions as argument
+---> assigning functions to a variable:
+function handsome(){
+}
+const me = handsome;
+me() #executes handsome function
+to check names of the previous function:
+me.name;
+--->Functions as parameters:
+when we pass function as a parameter, we dont invoke it. type in the
+function name without the parenthesis
+eg
+const timeFuncRuntime = funcParameter => {
+   let t1 = Date.now();
+   funcParameter();
+   let t2 = Date.now();
+   return t2 - t1;
+}
+
+const addOneToOne = () => 1 + 1;
+
+timeFuncRuntime(addOneToOne);
+
+--->Parsing Anonymous functions:
+timeFuncRuntime(() => {
+  for (let i = 10; i>0; i--){
+    console.log(i);
+  }
+});

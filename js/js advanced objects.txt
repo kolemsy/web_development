@@ -1,0 +1,205 @@
+---> the this keyword
+The this keyword references the calling object which provides 
+access to the calling object’s properties
+const goat = {
+  dietType: 'herbivore',
+  makeSound() {
+    console.log('baaa');
+  },
+  diet() {
+    console.log(this.dietType);
+  }
+};
+
+goat.diet(); 
+// Output: herbivore
+
+---> Arrow Functions and this
+Avoid using arrow function when using this to reference an object 
+because this is defined in the global scope of arrow functions.
+
+----> Privacy
+When discussing privacy in objects, we define it as the idea 
+that only certain properties should be mutable or able to change
+in value.
+One common convention is to place an underscore _ before the 
+name of a property to mean that the property should not be altered
+. Here’s an example of using _ to prepend a property.
+e.g
+const bankAccount = {
+  _amount: 1000
+}
+--->Getters
+Getters are methods that get and return the internal properties
+ of an object.
+it uses the keyword 'get'
+eg,
+const person = {
+  _firstName: 'John',
+  _lastName: 'Doe',
+  get fullName() {
+    if (this._firstName && this._lastName){
+      return `${this._firstName} ${this._lastName}`;
+    } else {
+      return 'Missing a first name or a last name.';
+    }
+  }
+}
+
+// To call the getter method: 
+person.fullName; // 'John Doe'
+
+--->Setters
+we can also create setter methods which reassign values of e
+xisting properties within an object. Let’s see an example of a set
+ter method:
+eg.
+const person = {
+  _age: 37,
+  set age(newAge){
+    if (typeof newAge === 'number'){
+      this._age = newAge;
+    } else {
+      console.log('You must assign a number to age');
+    }
+  }
+};
+---> Factory function
+A factory function is a function that returns an object and can be
+ reused to make multiple object instances. Factory functions can 
+also have parameters allowing us to customize the object that gets
+returned
+
+const monsterFactory = (name, age, energySource, catchPhrase) => {
+  return { 
+    name: name,
+    age: age, 
+    energySource: energySource,
+    scare() {
+      console.log(catchPhrase);
+    } 
+  }
+};
+
+const ghost = monsterFactory('Ghouly', 251, 'ectoplasm', 'BOO!');
+ghost.scare(); // 'BOO!
+
+---> Property Value Shorthand(destructing)
+const monsterFactory = (name, age) => {
+  return { 
+    name,
+    age 
+  }
+};
+
+--->Destructured Assignment
+
+In destructured assignment we create a variable with the name of 
+an object’s key that is wrapped in curly braces { } and assign to
+ it the object.
+const vampire = {
+  name: 'Dracula',
+  residence: 'Transylvania',
+  preferences: {
+    day: 'stay inside',
+    night: 'satisfy appetite'
+  }
+}
+
+const { residence } = vampire; 
+console.log(residence); // Prints 'Transylvania'
+
+const { day } = vampire.preferences; 
+console.log(day); // Prints 'stay inside'
+
+---> built in object methods
+eg
+const robot = {
+  model: 'SAL-1000',
+  mobile: true,
+  sentient: false,
+  armor: 'Steel-plated',
+  energyLevel: 75
+};
+
+-->The keys() method:
+const robotKeys = Object.keys(robot);
+console.log(robotKeys); #returns an array of keys
+
+--->the entries() method:
+const robotEntries = Object.entries(robot);
+console.log(robotEntries); #returns an array of key:value pairs.
+looping through key-value pairs:
+const robotEntries = Object.entries(robot);
+
+console.log(robotEntries);
+for ([key , value] of Object.entries(robot)){
+  console.log(`${key}, ${value}`);
+}
+--->The assign() method:
+const newRobot = Object.assign({laserBlaster: true, voiceRecognition: true}, robot);
+
+console.log(newRobot);
+
+
+const team = {
+  _players: [
+    {
+      firstName: 'Pablo',lastName: 'Sanchez',
+      age: 11
+    },
+    {
+      firstName: 'Oremosale',lastName: 'John',
+      age: 29
+    },
+    {
+      firstName: 'James',lastName: 'Adakole',
+      age: 11
+    }
+  ],
+  _games: [
+    { opponent: 'Broncos',teamPoints: 42,
+  opponentPoints: 27
+  },
+  { opponent: 'Sanchos',teamPoints: 62,
+  opponentPoints: 57
+  },
+  { opponent: 'Amigos',teamPoints: 44,
+  opponentPoints: 37
+  }
+  ],
+  get players(){
+    return this._players;
+  },
+  get games(){
+    return this._games;
+  },
+ addPlayer(firstName, lastName, age){
+   let player = {
+     firstName: firstName,
+     lastName: lastName,
+     age: age
+   };
+   this._players.push(player);
+ },
+ addGames(oppName, teamPoints, oppPoints){
+   let game = {
+     opponent: oppName,
+     teamPoints: teamPoints,
+     opponentPoints: oppPoints
+   };
+   this._games.push(game);
+ }
+};
+team.addPlayer('Steph','Curry', 28);
+team.addPlayer('Lisa','Leslie', 44);
+team.addPlayer('Bugs','Bunny', 76);
+
+team.addGames('Chelsea', 2, 4);
+team.addGames('ManU', 1, 1);
+team.addGames('Arsenal', 1,0);
+console.log(team._games);
+
+
+
+

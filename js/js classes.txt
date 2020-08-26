@@ -1,0 +1,59 @@
+--->Constructor
+JavaScript calls the constructor() method every time it creates a
+new instance of a class.
+
+class Dog {
+  constructor(name) {
+    this.name = name;
+    this.behavior = 0;
+  }
+}
+const myDog = new Dog('bingo')
+
+--->Methods
+get name(){
+    return this._name;
+  }
+Method calls
+let nikko = new Dog('Nikko'); // Create dog named Nikko
+nikko.incrementBehavior(); // Add 1 to nikko instance's behavior
+let bradford = new Dog('Bradford'); // Create dog name Bradford
+console.log(nikko.behavior); // Logs 1 to the console
+console.log(bradford.behavior); // Logs 0 to the console
+
+--->Inheritance
+When multiple classes share properties or methods, they become can
+didates for inheritance
+With inheritance, you can create a parent class
+ (also known as a superclass) with properties and methods that
+ multiple child classes (also known as subclasses) share
+
+--->Static Methods
+Sometimes you will want a class to have methods that aren’t 
+available in individual instances, but that you can call 
+directly from the class.
+Take the Date class, for example — you can both create Date 
+instances to represent whatever date you want, and call static 
+methods, like Date.now() which returns the current date, 
+directly from the class. The .now() method is static, so you can
+call it directly from the class, but not from an instance of the 
+class.
+
+class Animal {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+
+  static generateName() {
+    const names = ['Angel', 'Spike', 'Buffy', 'Willow', 'Tara'];
+    const randomNumber = Math.floor(Math.random()*5);
+    return names[randomNumber];
+  }
+} 
+
+ we create a static method called .generateName() that returns a 
+random name when it’s called. Because of the static keyword, we 
+can only access .generateName() by appending it to the Animal 
+class.
+console.log(Animal.generateName()); // returns a name

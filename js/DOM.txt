@@ -1,0 +1,68 @@
+---> document.body: selects the body 
+
+---> selecting and modifying elements
+we can use css selector
+The .querySelector() method allows us to specify a CSS selector 
+and then returns the first element that matches that selector.
+document.querySelector('p');
+
+Another option, if you want to access elements directly by their 
+id, you can use the aptly named .getElementByID() function:
+document.getElementById('bio').innerHTML = 'The description';
+
+--->Style an Element
+The .style property of a DOM element provides access to the inline
+ style of that HTML tag
+The syntax follows an element.style.property format, with the 
+property representing a CSS property.
+eg.
+let blueElement = document.querySelector('.blue');
+blueElement.style.backgroundColor = 'blue';
+
+The following chaining syntax would also work:
+document.querySelector('.blue').style.fontFamily = 'Roboto';
+
+---> Create and insert elements
+The .createElement(tagName) method creates a new element based
+ on the specified tag name passed into it as an argument.
+The .appendChild() method will add a child 
+element as the last child node.
+
+let paragraph = document.createElement('p');
+
+paragraph.id = 'info'; 
+
+paragraph.innerHTML = 'The text inside the paragraph';
+
+document.body.appendChild(paragraph);
+
+--->Remove an Element
+.removeChild()
+let paragraph = document.querySelector('p');
+document.body.removeChild(paragraph); #removes the first paragraph
+
+If you want to hide an element because it does not need to be 
+loaded initially, the .hidden property allows you to hide it by
+ assigning it as true or false:
+document.getElementById('sign').hidden = true;
+
+--->Interactivity with onclick
+The .onclick property allows you to assign a function to run on a
+ click event on an element:
+let element = document.getElementById('interact');
+element.onclick = function() { 
+	element.style.backgroundColor = 'blue'
+};
+
+---> Traversing the DOM
+Each DOM element node has a .parentNode and .children property.
+The .firstChild property will grant access to the first child of
+ that parent element.
+
+--->Summary
+The document keyword grants access to the root of the DOM in JavaScript
+The DOM Interface allows you to select a specific element with CSS selectors by using the .querySelector() method
+You can also access an element directly by its ID with .getElementById()
+The .innerHTML and .style properties allow you to modify an element by changing its contents or style respectively
+You can create, append, and remove elements by using the .createElement(),.appendChild() and .removeChild() methods respectively
+The .onclick property can add interactivity to a DOM element based on a click event

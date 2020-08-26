@@ -1,0 +1,18 @@
+Creating an array:
+1. Using array literal: []
+	acess elements using indices
+2. Using let and const
+	Arrays created using const cannot be reassigned but the 
+	elements are mutable
+.length returns length of an array
+.push adds element to the end of an array
+Some arrays methods that are available to JavaScript developers
+ include: 
+.join(), .slice(), .splice(), .shift(), .unshift(), and .concat()
+.shift() removes the first element from the array
+.unshift() adds element to the first position
+.slice() foods.slice(first_index, last_index plus 1)
+.indexOf() returns the index of an element
+eg. foods.indexOf('pasta')
+--->Nested Array:
+	[array1, array2]

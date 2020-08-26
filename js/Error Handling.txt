@@ -1,0 +1,44 @@
+--->Runtime Errors
+In JavaScript, there are built-in error objects that have a name
+ and message property which tell us what went wrong.
+--->Constructing an Error
+we could use the Error function to make our own error object with
+ a message that is unique to our program!
+console.log(Error('Your password is too weak.'));
+// Prints: Error: Your password is too weak.
+
+You might also see errors created with the new keyword. 
+console.log(new Error('Your password is too weak.'));
+// Prints: Error: Your password is too weak.
+
+--->The throw Keyword
+To throw an error in JavaScript, we use the throw keyword like so:
+
+throw Error('Something wrong happened');
+// Error: Something wrong happened
+
+--->The try...catch Statement
+we have the ability anticipate and handle these errors by writing
+code to address the error and allow our program to continue 
+running.
+try {
+  throw Error('This error will get caught');
+} catch (e) {
+  console.log(e);
+}
+// Prints: This error will get caught
+
+console.log('The thrown error that was caught in the try...catch statement!');
+// Prints: 'The thrown error that was caught in the try...catch statement!'
+
+--->Handling with try...catch
+we can also use a try...catch statement to handle built-in errors 
+that are thrown by the JavaScript engine that is reading and 
+evaluating our code.
+const someVar = 'Cannot be reassigned';
+try {
+  someVar = 'Still going to try';
+} catch(e) {
+  console.log(e);
+}
+// Prints: TypeError: Assignment to constant variable

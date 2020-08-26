@@ -1,0 +1,41 @@
+Errors and Error Handling
+---> Error Stack Traces
+error stack trace — a printed message containing information about
+where the error occurred, what type of error was thrown, and a 
+description of the error.
+
+--->Reading Error Stack Traces
+In what line did the error occur?
+<file path>/<file name>:<line number>
+In what line did the error occur?
+eg ReferenceError
+What is the error message?
+eg. myVariable is not defined.
+
+--->Javascript Error Types
+SyntaxError
+RefernceError
+TypeError
+
+--->Locating Silent Bugs
+An incredibly powerful tool for locating bugs is a method you 
+likely learned very early on in your JavaScript journey:
+console.log()!
+
+--->Debugging with console.log()
+
+1. Go to the beginning of the malfunctioning code. Print out all 
+starting variables, existing values, and arguments using 
+console.log().
+2. After the next piece of logic in your code, add console.log() 
+statements to ensure updated variables have the values that you 
+now expect and that the block of code is being executed.
+
+--->Finding documentation
+
+Sometimes once you’ve tracked down a bug, you might still be 
+confused on how to fix it! Whenever you want to know more about 
+how JavaScript works and what it can do, the best place to go is 
+documentation.
+
+--->Stack Overflow

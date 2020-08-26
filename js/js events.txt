@@ -1,0 +1,63 @@
+Events on the web are user interactions and browser manipulations
+ that you can program to trigger functionality.
+An event fires on a specific element, event handler function can be created to respond
+--->Event Handler Registration
+An event handler function is registered as a property attached to the DOM element being 
+interacted with, or the event target.
+eg.
+let eventTarget = document.getElementById('targetElement');
+
+eventTarget.onclick = function() {
+  // this block of code will run
+}
+--->Adding Event Handlers
+It’s best practice to create named event handler functions, 
+instead of anonymous functions. Your code will remain organized 
+and reusable this way, even if your code gets complex
+syntax:
+let eventHandlerFunction = function() {
+  // this block of code will run
+}
+
+eventTarget.onclick = eventHandlerFunction;
+
+The .addEventListener() method is another common syntax for
+ registering event handlers
+e.g.
+eventTarget.addEventListener('click', eventHandlerFunction);
+
+--->Removing Event Handlers
+The .removeEventListener() method is used to reverse the
+.addEventListener() method.
+e.g
+eventTarget.removeEventListener('click', eventHandlerFunction);
+
+--->Event Object Properties
+JavaScript stores events as event objects with their related 
+data and functionality as properties and methods. 
+
+You can call these properties to see information about the event,
+ for example:
+
+the .target property to access the element that triggered the 
+event.
+the .type property to access the name of the event.
+the .timeStamp property to access the number of milliseconds that
+passed since the document loaded and the event was triggered
+
+Event Types
+Mouse Events
+When you click down or move the mouse device mouse events fire.
+The mousedown event is fired when the user presses 
+a mouse button down. 
+onmouseup
+onmousedown
+onmouseover
+onmouseout
+
+--->Keyboard Events
+keyboard events are triggered by user interaction with keyboard
+ keys in the browser
+keydown
+keyup
+keypress

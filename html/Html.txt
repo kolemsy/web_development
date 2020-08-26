@@ -1,0 +1,22 @@
+<spam> tag contains short piece of text or other HTML. Used to seperate
+ pieces of content that are on the same line as other content.
+	best to use when you want to target contents inline.
+form input types
+	text
+	password
+	number
+	range
+	checkboxes
+	radio buttons
+	drop down list
+	datalist
+	text area
+eg <form>
+	<input type='text'>
+   </form>
+
+Sementic HTML
+	header, main, footer
+	main
+		section	
+		article
